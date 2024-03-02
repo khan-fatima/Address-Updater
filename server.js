@@ -14,7 +14,7 @@ const addressSchema = new mongoose.Schema({
   name: String,
   apartmentNo: String,
   street: String,
-  town: String,
+  locality: String,
   city: String,
   state: String,
   pincode: Number,
@@ -26,10 +26,10 @@ app.use(bodyParser.json());
 app.use(cors());      
 
 app.post('/api/addresses', async (req, res) => {
-  const { name, apartmentNo, street, town, city, state, pincode } = req.body;
+  const { name, apartmentNo, street, locality, city, state, pincode } = req.body;
   
 
-  const newAddress = new Address({ name, apartmentNo, street, town, city, state, pincode });
+  const newAddress = new Address({ name, apartmentNo, street, locality, city, state, pincode });
   console.log(newAddress);
   try {
     const savedAddress = await newAddress.save();
@@ -60,12 +60,12 @@ app.delete('/api/addresses/:id', async (req, res) => {
 
 app.put('/api/addresses/:id', async (req, res) => {
   const id = req.params.id;
-  const { name, apartmentNo, street, town, city, state, pincode } = req.body;
+  const { name, apartmentNo, street, locality, city, state, pincode } = req.body;
 
   try {
     const updatedAddress = await Address.findByIdAndUpdate(
       id,
-      { name, apartmentNo, street, town, city, state, pincode },
+      { name, apartmentNo, street, locality, city, state, pincode },
       { new: true }
     );
 

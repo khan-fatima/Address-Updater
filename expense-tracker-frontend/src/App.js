@@ -7,7 +7,7 @@ function App() {
     name: '',
     apartmentNo: '',
     street: '',
-    town: '',
+    locality: '',
     city: '',
     state: '',
     pincode: 0,
@@ -42,7 +42,7 @@ function App() {
           name: '',
           apartmentNo: '',
           street: '',
-          town: '',
+          locality: '',
           city: '',
           state: '',
           pincode: 0,
@@ -75,7 +75,7 @@ function App() {
           name: '',
           apartmentNo: '',
           street: '',
-          town: '',
+          locality: '',
           city: '',
           state: '',
           pincode: 0,
@@ -138,14 +138,14 @@ function App() {
 </div>
 
 <div className="form-group">
-  <label htmlFor="town" className="label">Town:</label>
+  <label htmlFor="locality" className="label">Locality:</label>
   <input
     type="text"
-    id="town"
+    id="locality"
     className="input"
-    placeholder="Town"
-    value={newAddress.town}
-    onChange={(e) => setNewAddress({ ...newAddress, town: e.target.value })}
+    placeholder="Locality"
+    value={newAddress.locality}
+    onChange={(e) => setNewAddress({ ...newAddress, locality: e.target.value })}
   />
 </div>
 
@@ -192,7 +192,7 @@ function App() {
       <ul className="address-list">
         {addresses.map((address) => (
           <li key={address._id} className="address-item">
-            {address.name} : {address.apartmentNo}, {address.street}, {address.town}, {address.city}, {address.state}, {address.pincode}
+            {address.name} : {address.apartmentNo}, {address.street}, {address.locality}, {address.city}, {address.state}, {address.pincode}
             <button className="edit-button" onClick={() => handleEditAddress(address._id)}>
               Edit
             </button>
